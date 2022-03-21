@@ -30,9 +30,12 @@ ou outra variante linux.
 	
 - Importar o arquivo .sql para gerar as tabelas via PhpMyAdmin
 
-
+- Log de erros em /storage/logs
 - Models em /app/Models
 - Controllers em /app/Http/Controllers
+- Routes em /routes/api.php - (API Rest)
+   localhost:8000/api/pessoa_fisica
+   localhost:8000/api/inscricao
 
 
 
