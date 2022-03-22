@@ -19,9 +19,7 @@ class InscricaoController extends Controller
             [
 			    'pessoa_fisica_id' => 'required',
 			    'cargo' => 'required',
-			    'situacao' => 'required',
-			    'dt_criacao' => 'required',
-			    'dt_alteracao' => 'required'
+			    'situacao' => 'required'
             ]
         );
         
@@ -29,10 +27,8 @@ class InscricaoController extends Controller
 	    $inscricao->pessoa_fisica_id = $request->pessoa_fisica_id;
 	    $inscricao->cargo = $request->cargo;
 	    $inscricao->situacao = $request->situacao;
-	    $inscricao->dt_criacao = $request->dt_criacao;
-	    $inscricao->dt_alteracao = $request->dt_alteracao;
 	    
-        return json_encode(Inscricao::create($inscricao));
+        return json_encode(Inscricao::createInscricao($inscricao));
     }
     
     public function update(Request $request)
@@ -40,24 +36,19 @@ class InscricaoController extends Controller
         $this->validate(
             $request,
             [
-            	'inscricao_id' => 'required',
+            	'id' => 'required',
 			    'pessoa_fisica_id' => 'required',
 			    'cargo' => 'required',
 			    'situacao' => 'required',
-			    'dt_criacao' => 'required',
-			    'dt_alteracao' => 'required'
             ]
         );
         
-	    $inscricao = new Inscricao();
-	    $inscricao->inscricao_id = $request->inscricao_id;
+	    $inscricao = Inscricao::find($request->id);
 	    $inscricao->pessoa_fisica_id = $request->pessoa_fisica_id;
 	    $inscricao->cargo = $request->cargo;
 	    $inscricao->situacao = $request->situacao;
-	    $inscricao->dt_criacao = $request->dt_criacao;
-	    $inscricao->dt_alteracao = $request->dt_alteracao;
 	    
-	    return json_encode(Inscricao::update($inscricao));
+	    return json_encode(Inscricao::updateInscricao($inscricao));
     }
 
     public function index(Request $request)
@@ -77,34 +68,16 @@ class InscricaoController extends Controller
         return json_encode(Inscricao::orderBy('cargo')->get());
     }
 
-    public function show(Request $request)
+    public function show(Request $request, $id)
     {
-        $this->validate(
-            $request,
-            [
-                'inscricao_id' => 'required'
-            ]
-        );
-        
-        $inscricao = new Inscricao();
-	    $inscricao->inscricao_id = $request->inscricao_id;
-	    
-        return json_encode(Inscricao::loadById($inscricao));
+        return json_encode(Inscricao::loadInscricaoById($id));
     }
 
-    public function destroy(Request $request)
+    public function destroy(Request $request, $id)
     {
-        $this->validate(
-            $request,
-            [
-                'inscricao_id' => 'required'
-            ]
-        );
-        
-        $inscricao = new Inscricao();
-	    $inscricao->inscricao_id = $request->inscricao_id;
+        $inscricao = Inscricao::find($id);
 	    
-        return json_encode(Inscricao::delete($inscricao));
+        return json_encode(Inscricao::deleteInscricao($inscricao));
     }
 
 }

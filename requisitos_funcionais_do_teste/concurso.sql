@@ -67,12 +67,12 @@ INSERT INTO `estado` (`estado_id`, `nome`, `sigla`) VALUES
 --
 
 CREATE TABLE `inscricao` (
-  `inscricao_id` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `pessoa_fisica_id` int(11) NOT NULL,
   `cargo` varchar(300) NOT NULL,
   `situacao` enum('cadastrando','enviado') NOT NULL DEFAULT 'cadastrando',
-  `dt_criacao` datetime NOT NULL,
-  `dt_alteracao` datetime DEFAULT NULL
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -82,12 +82,14 @@ CREATE TABLE `inscricao` (
 --
 
 CREATE TABLE `pessoa_fisica` (
-  `pessoa_fisica_id` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `nome` varchar(300) NOT NULL,
   `cpf` varchar(11) NOT NULL,
   `endereco` varchar(300) NOT NULL,
   `cidade_id` int(11) NOT NULL,
-  `estado_id` int(11) NOT NULL
+  `estado_id` int(11) NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -111,14 +113,14 @@ ALTER TABLE `estado`
 -- Indexes for table `inscricao`
 --
 ALTER TABLE `inscricao`
-  ADD PRIMARY KEY (`inscricao_id`),
+  ADD PRIMARY KEY (`id`),
   ADD KEY `fk_candidato_pessoa_fisica_idx` (`pessoa_fisica_id`);
 
 --
 -- Indexes for table `pessoa_fisica`
 --
 ALTER TABLE `pessoa_fisica`
-  ADD PRIMARY KEY (`pessoa_fisica_id`),
+  ADD PRIMARY KEY (`id`),
   ADD KEY `fk_pessoa_fisica_cidade1_idx` (`cidade_id`),
   ADD KEY `fk_pessoa_fisica_estado1_idx` (`estado_id`);
 
@@ -142,13 +144,13 @@ ALTER TABLE `estado`
 -- AUTO_INCREMENT for table `inscricao`
 --
 ALTER TABLE `inscricao`
-  MODIFY `inscricao_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `pessoa_fisica`
 --
 ALTER TABLE `pessoa_fisica`
-  MODIFY `pessoa_fisica_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
@@ -164,7 +166,7 @@ ALTER TABLE `cidade`
 -- Constraints for table `inscricao`
 --
 ALTER TABLE `inscricao`
-  ADD CONSTRAINT `fk_candidato_pessoa_fisica` FOREIGN KEY (`pessoa_fisica_id`) REFERENCES `pessoa_fisica` (`pessoa_fisica_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_candidato_pessoa_fisica` FOREIGN KEY (`pessoa_fisica_id`) REFERENCES `pessoa_fisica` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `pessoa_fisica`

@@ -33,7 +33,7 @@ class PessoaFisicaController extends Controller
 	    $pessoa->cidade_id = $request->cidade_id;
 	    $pessoa->estado_id = $request->estado_id;
 	    
-        return json_encode(PessoaFisica::create($pessoa));
+        return json_encode(PessoaFisica::createPessoaFisica($pessoa));
     }
     
     public function update(Request $request)
@@ -41,7 +41,7 @@ class PessoaFisicaController extends Controller
         $this->validate(
             $request,
             [
-                'pessoa_fisica_id' => 'required',
+                'id' => 'required',
                 'nome' => 'required',
 			    'cpf' => 'required',
 			    'endereco' => 'required',
@@ -50,15 +50,14 @@ class PessoaFisicaController extends Controller
             ]
         );
         
-	    $pessoa = new PessoaFisica();
-	    $pessoa->pessoa_fisica_id = $request->pessoa_fisica_id;
+	    $pessoa = PessoaFisica::find($request->id);
 	    $pessoa->nome = $request->nome;
 	    $pessoa->cpf = $request->cpf;
 	    $pessoa->endereco = $request->endereco;
 	    $pessoa->cidade_id = $request->cidade_id;
 	    $pessoa->estado_id = $request->estado_id;
 	    
-        return json_encode(PessoaFisica::update($pessoa));
+        return json_encode(PessoaFisica::updatePessoaFisica($pessoa));
     }
 
     public function index(Request $request)
@@ -78,35 +77,17 @@ class PessoaFisicaController extends Controller
         return json_encode(PessoaFisica::orderBy('nome')->get());
     }
 
-    public function show(Request $request)
+    public function show(Request $request, $id)
     {
-        $this->validate(
-            $request,
-            [
-                'pessoa_fisica_id' => 'required'
-            ]
-        );
-        
-        $pessoa = new PessoaFisica();
-	    $pessoa->pessoa_fisica_id = $request->pessoa_fisica_id;
-	    
-        return json_encode(PessoaFisica::loadById($pessoa));
+        return json_encode(PessoaFisica::loadPessoaFisicaById($id));
     }
 
 
-    public function destroy(Request $request)
+    public function destroy(Request $request, $id)
     {
-        $this->validate(
-            $request,
-            [
-                'pessoa_fisica_id' => 'required'
-            ]
-        );
-        
-        $pessoa = new PessoaFisica();
-	    $pessoa->pessoa_fisica_id = $request->pessoa_fisica_id;
+        $pessoa = PessoaFisica::find($id);
 	    
-        return json_encode(PessoaFisica::delete($pessoa));
+        return json_encode(PessoaFisica::deletePessoaFisica($pessoa));
     }
 
 }

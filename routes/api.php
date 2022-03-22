@@ -14,19 +14,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
-
-Route::get('/pessoa_fisica', 'PessoaFisicaController@index');
-Route::get('/pessoa_fisica/{id}', 'PessoaFisicaController@show');
-Route::post('/pessoa_fisica', 'PessoaFisicaController@store');
-Route::patch('/pessoa_fisica', 'PessoaFisicaController@update');
-Route::delete('/pessoa_fisica', 'PessoaFisicaController@destroy');
-
-Route::get('/inscricao', 'InscricaoController@index');
-Route::get('/inscricao/{id}', 'InscricaoController@show');
-Route::post('/inscricao', 'InscricaoController@store');
-Route::patch('/inscricao', 'InscricaoController@update');
-Route::delete('/inscricao', 'InscricaoController@destroy');
+$router->group(
+    [], 
+    function () use ($router) {
+		$router->get('/pessoa_fisica', '\App\Http\Controllers\PessoaFisicaController@index');
+		$router->get('/pessoa_fisica/{id}', '\App\Http\Controllers\PessoaFisicaController@show');
+		$router->post('/pessoa_fisica', '\App\Http\Controllers\PessoaFisicaController@store');
+		$router->patch('/pessoa_fisica', '\App\Http\Controllers\PessoaFisicaController@update');
+		$router->patch('/pessoa_fisica/{id}', '\App\Http\Controllers\PessoaFisicaController@destroy');
+		
+		$router->get('/inscricao', '\App\Http\Controllers\InscricaoController@index');
+		$router->get('/inscricao/{id}', '\App\Http\Controllers\InscricaoController@show');
+		$router->post('/inscricao', '\App\Http\Controllers\InscricaoController@store');
+		$router->patch('/inscricao', '\App\Http\Controllers\InscricaoController@update');
+		$router->patch('/inscricao/{id}', '\App\Http\Controllers\InscricaoController@destroy');
+    }
+);

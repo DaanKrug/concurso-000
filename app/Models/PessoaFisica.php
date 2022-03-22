@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class PessoaFisica extends Model
 {
+	protected $table = 'pessoa_fisica';
+	
 	protected $fillable = [
 	    'nome',
 	    'cpf',
@@ -14,20 +16,20 @@ class PessoaFisica extends Model
 	    'estado_id'
 	];
 	
-    public static function create(PessoaFisica $pessoa){
+    public static function createPessoaFisica(PessoaFisica $pessoa){
     	return $pessoa->save();
     }
     
-    public static function update(PessoaFisica $pessoa){
+    public static function updatePessoaFisica(PessoaFisica $pessoa){
     	return $pessoa->save();
     }
     
-    public static function loadById(PessoaFisica $pessoa){
-        return PessoaFisica::find($pessoa->pessoa_fisica_id);
+    public static function loadPessoaFisicaById($id){
+        return PessoaFisica::find($id)->first();
     }
     
-    public static function delete(PessoaFisica $pessoa){
-        $pessoa = $this->loadById($pessoa);
+    public static function deletePessoaFisica(PessoaFisica $pessoa){
+        $pessoa = self::loadPessoaFisicaById($pessoa);
     	return $pessoa->delete();
     }
   
