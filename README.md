@@ -7,7 +7,7 @@ do ambiente de trabalho, disponível em: [Ubuntu-Laravel-Angular-Environment-Con
 
 Se você usa outro sistema operacional diferente do Ubuntu, não há problemas, desde que consiga
 ter instaladas as ferramentas/programas listados ali neste tutorial 
-- (NodeJs e NPM não serão necessários caso não vá usar Angular para criar a interface).
+- (NodeJs e NPM não serão necessários caso não vá usar Angular e afins para criar a interface).
 
 
 ## Instruções
@@ -40,7 +40,9 @@ ou outra variante linux.
 
 - A Configuração das Routes fica em /routes/api.php - (API Rest).
 
-- Importar a colection do postman para testar a API no Postman (Como material de apoio).
+- Importar a colection do postman para testar a API no Postman. Recomenda-se instalar e usar o postman,
+pois irá lhe ajudar a identificar os possíveis problemas com o código
+do backend, e/ou garantir que você está fazendo as chamadas de API REST corretamente.
 
 
 ## Objetivos gerais
@@ -68,4 +70,30 @@ limitação de tamanhos.
 - Tratamento e prevenção de erros no backend.
 
 - Conformidade com as regras de negócio que estejam contidas no documento de requisitos (leia com atenção).
+
+
+## Pontos extras
+
+Itens opcionais e que devem/podem ser feitos após ter completado os itens anteriores (Faça primeiro
+tudo o que conseguir dos itens anteriores da melhor forma que puder/souber). Aqui você poderá demonstrar suas habilidades/capacidades de forma mais livre/criativa também.
+
+- Desenvolvimento de telas adicionais, por exemplo os CRUD para cadastro de cidades e estados (Juntamente
+com os respectivos endpoints no backend - Routes, Controllers e Models).
+
+- Utilização de Typescript no desenvolvimento da(s) interface(s) (Angular, React, entre outros).
+
+- Elementos de navegação de interface (Router Link, Menus e etc).
+
+- Bom visual de apresentação (alinhamento, estilos e etc).
+
+- Adequar a estrutura do código existente (Laravel) para se aproximar mais do padrão de separação
+de camadas (identificar o que pode ser melhorado).
+
+- Toda e qualquer outra idéia de melhoria que se coloque em prática (Se você tentar e não funcionar
+pode deixar isso no código e vamos trocar uma idéia a respeito - melhor que simplesmente remover e
+ter menos coisas para apresentar).
+
+
+
+
 
