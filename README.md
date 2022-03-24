@@ -10,6 +10,27 @@ ter instaladas as ferramentas/programas listados ali neste tutorial
 - (NodeJs e NPM não serão necessários caso não vá usar Angular e afins para criar a interface).
 
 
+## Procedimento para a "entrega" do teste
+
+1º - Deve-se realizar o clone deste repositório para a máquina de desenvolvimento.
+2º - Criar um repositório pessoal com o exato conteúdo deste repositório, na branch
+"main" ou "master"
+3º - Criar uma nova branch deste repositório para realizar o teste
+4º - Fazer o commit/pull request desta nova branch com suas alterações
+
+Este procedimento visa facilitar a análise do que foi produzido, e também demonstrará
+que você tem algum domínio da ferramenta de versionamento.
+
+  - cd /meu_diretorio
+  - git clone https://github.com/DaanKrug/concurso-000.git
+  - cd concurso-000
+  - git remote remove origin 
+  - git remote add origin https://github.com/<meu_git_user>/<meu_repositorio>.git
+  - git push origin main
+  - git checkout -b feature/nome_minha_branch
+  - git push origin feature/nome_minha_branch
+
+
 ## Instruções
 
 Os requisitos do teste, documentação (Print do MER - Modelo Entidade Relacionamento),
@@ -89,7 +110,7 @@ com os respectivos endpoints no backend - Routes, Controllers e Models).
 - Adequar a estrutura do código existente (Laravel) para se aproximar mais do padrão de separação
 de camadas (identificar o que pode ser melhorado).
 
-- Toda e qualquer outra idéia de melhoria que se coloque em prática (Se você tentar e não funcionar
+- Toda e qualquer outra ideia de melhoria que se coloque em prática (Se você tentar e não funcionar
 pode deixar isso no código e vamos trocar uma idéia a respeito - melhor que simplesmente remover e
 ter menos coisas para apresentar).
 
