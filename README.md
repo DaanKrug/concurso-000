@@ -13,19 +13,24 @@ ter instaladas as ferramentas/programas listados ali neste tutorial
 ## Procedimento para a "entrega" do teste
 
 1º - Deve-se realizar o clone deste repositório para a máquina de desenvolvimento.
+
 2º - Criar um repositório pessoal com o exato conteúdo deste repositório, na branch
 "main" ou "master"
+
 3º - Criar uma nova branch deste repositório para realizar o teste
+
 4º - Fazer o commit/pull request desta nova branch com suas alterações
 
 Este procedimento visa facilitar a análise do que foi produzido, e também demonstrará
 que você tem algum domínio da ferramenta de versionamento.
 
-  - cd /meu_diretorio
+Comandos iniciais até o passo 3:
+
+  - cd meu_diretorio
   - git clone https://github.com/DaanKrug/concurso-000.git
   - cd concurso-000
   - git remote remove origin 
-  - git remote add origin https://github.com/<meu_git_user>/<meu_repositorio>.git
+  - git remote add origin https://github.com/[meu_git_user]/[meu_repositorio].git
   - git push origin main
   - git checkout -b feature/nome_minha_branch
   - git push origin feature/nome_minha_branch
