@@ -34,6 +34,13 @@ Comandos iniciais até o passo 3:
   - git push origin main
   - git checkout -b feature/nome_minha_branch
   - git push origin feature/nome_minha_branch
+  
+Efetuar o passo número 4º, conferir se as suas alterações/implemetações
+estão todas na branch <feature/nome_minha_branch>, depois entrar
+em contato com os responsáveis e enviar o link do repositório
+<https:/ /github.com/[meu_git_user]/[meu_repositorio]>.
+
+Não esquecer de deixar este repositório com acesso "public", para ser acessível.
 
 
 ## Instruções
