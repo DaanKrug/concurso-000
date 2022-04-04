@@ -24,23 +24,38 @@ ter instaladas as ferramentas/programas listados ali neste tutorial
 Este procedimento visa facilitar a análise do que foi produzido, e também demonstrará
 que você tem algum domínio da ferramenta de versionamento.
 
-Comandos iniciais até o passo 3:
+Comandos iniciais até o passo 4º:
 
+  - // navegar até o diretório
   - cd meu_diretorio
+  
+  - // clonar o repositório
   - git clone https://github.com/DaanKrug/concurso-000.git
+  
+  - // ir para o repositório clonado do git
   - cd concurso-000
+  
+  - // des-vincular com o repositório clonado
   - git remote remove origin 
-  - git remote add origin https://github.com/[meu_git_user]/[meu_repositorio].git
+  
+  - // vincular com o seu repositório no github (criar o repositório vazio antes)
+  - git remote add origin <https:/ /github.com/[seu_git_user]/[seu_repositorio].git>
+  
+  - // commitar o código original clonado para a branch main do seu repositório
   - git push origin main
-  - git checkout -b feature/nome_minha_branch
-  - git push origin feature/nome_minha_branch
+  
+  - // criar a nova branch no seu repositório
+  - git checkout -b <feature/nome_sua_branch>
+  
+  - // commitar o código com suas alterações na nova branch de seu repositório
+  - git push origin <feature/nome_sua_branch>
   
 Efetuar o passo número 4º, conferir se as suas alterações/implemetações
-estão todas na branch <feature/nome_minha_branch>, depois entrar
-em contato com os responsáveis e enviar o link do repositório
-<https:/ /github.com/[meu_git_user]/[meu_repositorio]>.
+estão todas na branch <feature/nome_sua_branch>, depois entrar
+em contato com os responsáveis e enviar o link do seu repositório
+<https:/ /github.com/[seu_git_user]/[seu_repositorio]>.
 
-Não esquecer de deixar este repositório com acesso "public", para ser acessível.
+Não esquecer de deixar este seu repositório com acesso "public", para ser acessível.
 
 
 ## Instruções
