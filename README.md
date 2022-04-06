@@ -67,6 +67,8 @@ e comandos SQL encontram-se no diretório: requisitos_funcionais_do_teste.
 diretório de execução do apache/PHP (para facilitar), normalmente "/var/www/html" se utilizas Ubuntu
 ou outra variante linux.
 
+- Executar o comando "composer install" para instalar os pacotes e dependências
+
 - Renomear o arquivo .env.example para .env
 
 - Editar o arquivo .env para apontar corretamente a conexão com o banco de dados
