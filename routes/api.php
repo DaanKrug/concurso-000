@@ -23,7 +23,7 @@ $router->group(
 		$router->patch('/pessoa_fisica', '\App\Http\Controllers\PessoaFisicaController@update');
 		$router->patch('/pessoa_fisica/{id}', '\App\Http\Controllers\PessoaFisicaController@destroy');
 		
-		$router->get('/inscricao', '\App\Http\Controllers\InscricaoController@index');
+		$router->get('/', '\App\Http\Controllers\InscricaoController@index');
 		$router->get('/inscricao/{id}', '\App\Http\Controllers\InscricaoController@show');
 		$router->post('/inscricao', '\App\Http\Controllers\InscricaoController@store');
 		$router->patch('/inscricao', '\App\Http\Controllers\InscricaoController@update');

@@ -1,83 +1,66 @@
 <?php
 
-declare(strict_types=1);
-
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Models\Estado;
 use App\Models\Inscricao;
+use App\Models\PessoaFisica;
+use Illuminate\Http\Request;
 
 class InscricaoController extends Controller
 {
-    public function __construct(){}
+   /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        $states = Estado::all();
+        return view('inscricao.create', compact('states'));
+    }
 
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function store(Request $request)
     {
-        $this->validate(
-            $request,
-            [
-			    'pessoa_fisica_id' => 'required',
-			    'cargo' => 'required',
-			    'situacao' => 'required'
-            ]
-        );
+        $request->validate([
+            'name' => 'required',
+            'cpf' => 'required',
+            'endereco' => 'required',
+            'estado' => 'required',
+            'cidade' => 'required',
+            'cargo' => 'required',
+        ]);
+
+        $estado = Estado::Select("estado_id")->where('sigla', $request->estado)->get();
+        $pessoa = new PessoaFisica();
+        $pessoa->nome = $request->name;
+        $pessoa->cpf = $request->cpf;
+        $pessoa->endereco = $request->endereco;
+        $pessoa->cidade_id = 1;
+        foreach($estado as $state) {
+            $pessoa->estado_id = $state->estado_id;  
+        }
+        $pessoa->save();
+
+        $lastPeople = PessoaFisica::orderByDesc('id')
+        ->limit(1)->get();
         
 	    $inscricao = new Inscricao();
-	    $inscricao->pessoa_fisica_id = $request->pessoa_fisica_id;
-	    $inscricao->cargo = $request->cargo;
-	    $inscricao->situacao = $request->situacao;
-	    
-        return json_encode(Inscricao::createInscricao($inscricao));
-    }
-    
-    public function update(Request $request)
-    {
-        $this->validate(
-            $request,
-            [
-            	'id' => 'required',
-			    'pessoa_fisica_id' => 'required',
-			    'cargo' => 'required',
-			    'situacao' => 'required',
-            ]
-        );
-        
-	    $inscricao = Inscricao::find($request->id);
-	    $inscricao->pessoa_fisica_id = $request->pessoa_fisica_id;
-	    $inscricao->cargo = $request->cargo;
-	    $inscricao->situacao = $request->situacao;
-	    
-	    return json_encode(Inscricao::updateInscricao($inscricao));
-    }
-
-    public function index(Request $request)
-    {
-    	$this->validate(
-            $request,
-            [
-			    'cargo' => 'nullable'
-            ]
-        );
-        
-        if(null != $request->cargo){
-        	$result = Inscricao::where('cargo', $request->cargo)->orderBy('cargo')->get();
-        	return json_encode($result);
+        foreach($lastPeople as $getPeople) {
+            $inscricao->pessoa_fisica_id = $getPeople->id;
         }
-        
-        return json_encode(Inscricao::orderBy('cargo')->get());
-    }
+	    $inscricao->cargo = $request->cargo;
+        $inscricao->save();
 
-    public function show(Request $request, $id)
-    {
-        return json_encode(Inscricao::loadInscricaoById($id));
-    }
+      
 
-    public function destroy(Request $request, $id)
-    {
-        $inscricao = Inscricao::find($id);
-	    
-        return json_encode(Inscricao::deleteInscricao($inscricao));
+        return redirect()->route('inscricao.index')
+                        ->with('success','Inscrição feita com sucesso.');
     }
-
 }
