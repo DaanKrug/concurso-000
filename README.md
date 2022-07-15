@@ -1,9 +1,37 @@
-
-
 # Teste Desenvolvedor PHP / Laravel / Angular
 
-Antes de iniciar o teste recomenda-se seguir o tutorial para configuração
-do ambiente de trabalho, disponível em: [Ubuntu-Laravel-Angular-Environment-Config](https://github.com/DaanKrug/Ubuntu-Laravel-Angular-Environment-Config)
+
+<span style="color: red; font-weight: bold;">Antes de Iniciar a Codificação:</span>
+<br/>
+<br/>
+<span style="color: #01f;">Leia com atenção as instruções a seguir.</span>
+
+## O que se espera com o teste
+
+<span style="color: #01f; font-weight: bold;">
+Não precisa ser Jedi nem Super Star das 7 galáxias, nem nada do tipo
+</span>, se conseguir criar um CRUD bem feito tá valendo.
+
+O teste tem objetivo de lhe ajudar a demonstrar seus conhecimentos nas tecnologias 
+backend (PHP e/ou Laravel Framework + PHP) e frontend (Angular e/ou HTML + CSS + JS).
+
+Este repositório do teste pressupõe que se utilizará o framework Laravel, contudo
+pode ser feito o teste em PHP puro, lembrando-se de aplicar boas práticas aplicáveis.
+
+O mesmo vale para o framework Angular, caso não conheça o framework deverá utilizar outra tecnologia
+compatível com desenvolvimento frontend WEB (até mesmo HTML + CSS + JS puro sem frameworks). 
+
+
+## Configuração do ambiente
+
+Antes de iniciar o teste recomenda-se configurar o ambiente 
+com as ferramentas básicas para PHP + WEB. 
+
+Se precisar alguma orientação neste sentido podes 
+seguir o tutorial para configuração
+do ambiente de trabalho, disponível em: 
+
+[Ubuntu-Laravel-Angular-Environment-Config](https://github.com/DaanKrug/Ubuntu-Laravel-Angular-Environment-Config)
 
 Se você usa outro sistema operacional diferente do Ubuntu, não há problemas, desde que consiga
 ter instaladas as ferramentas/programas listados ali neste tutorial 
