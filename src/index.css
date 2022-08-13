@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer{
+    body {
+        background-color: rgb(232, 225, 225);
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+    .gridContainer {
+        @apply grid grid-cols-[50%_50%]
+    }
+}
